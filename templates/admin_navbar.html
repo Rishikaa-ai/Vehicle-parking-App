@@ -1,0 +1,11 @@
+
+  <div class="top-bar">
+  <strong>Welcome, Admin</strong>
+  <div>
+    <a href="{{ url_for('admin_dashboard', user_id=admin.id) }}">Home</a>
+    <a href="{{ url_for('user_details') }}">Users</a>
+    <a href="{{ url_for('admin_search') }}">Search</a>
+    <a href="{{ url_for('admin_summary') }}">Summary</a>
+    <a href="{{ url_for('login') }}">Logout</a>
+    <a href="{{ url_for('edit_profile', user_id=admin.id) }}">Edit Profile</a>
+  </div>

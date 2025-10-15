@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Summary</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<header>
+  {% include 'admin_navbar.html' %}
+</header>
+
+<body>
+  <h2 class='heading'>Admin Search</h2>
+  <div class="section-title">
+        <div class="chart-container">
+            <div class="chart">
+                <h3>Revenue by Parking Lot</h3>
+                <img src="{{ url_for('static', filename='pie_chart.png') }}" width="450">
+            </div>
+            <div class="chart">
+                <h3>Lot Status Summary</h3>
+                <img src="{{ url_for('static', filename='bar_chart.png') }}" width="450">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

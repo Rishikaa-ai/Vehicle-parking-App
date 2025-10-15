@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<header>
+    <div class="top-bar">
+        <strong>Welcome, {{ user.full_name.split(' ')[0] }}</strong>
+        <div>
+            <a href="{{ url_for('user_dashboard', user_id=user.id) }}">Home</a>
+            <a href="{{ url_for('summary', user_id=user.id) }}" >Summary</a>
+            <a href="{{ url_for('login') }}">Logout</a>
+            <a href="{{ url_for('edit_profile', user_id=user.id) }}">Edit Profile</a>
+        </div>
+    </div>
+</header>
+
+<body>
+    <h2 class="heading">Recent Parking History</h2>
+    <div class="section-title">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+               <th>ID</th>
+                <th>Location</th>
+                <th>Vehicle No.</th>
+                <th>Parking Time</th>
+                <th>Action</th>         
+            </tr>
+            {% for res in reservations %}
+            <tr>
+                <td>{{ res.spot.lot.id }}</td>
+                <td>{{ res.spot.lot.prime_location_name }}</td>
+                <td>{{ res.vehicle_number }}</td>
+                <td>{{ res.parking_time.strftime('%H:%M:%S  %d-%m-%y') }}</td>
+                <td>
+                    {% if not res.leaving_time %}
+                        <form action="{{ url_for('release_spot', res_id=res.id) }}" method="GET">
+                            <button type="submit" class="btn">Release</button>
+                        </form>
+                    {% else %}
+                        <button disabled>Parked Out</button>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %} 
+        </table>  
+    </div>
+    
+   
+    
+    <b><h2 class="heading">Select a City</h2></b>
+    <form method="POST" action="{{ url_for('search_by_city', user_id=user.id) }}" class="city-form">
+        <select name="city" class="dropdown" required>
+            <option value=""disabled selected>-- Choose a City --</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Kota">Kota</option>
+            <option value="Ajmer">Ajmer</option>
+        </select>
+        <button type="submit" class="btn">Search</button>
+    </form>
+    
+    {% if lots %}
+    <h2 class="heading">Available Parking Lots in {{ city_selected }}</h2>
+    <div class="section-title">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Location</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Vacant_spots</th>    
+                <th>Action</th>
+            </tr>
+            {% for lot in lots %}
+            <tr>   
+                <td>{{ lot.id }}</td>
+                <td>{{ lot.prime_location_name}}</td>
+                <td>{{ lot.address }}</td>
+                <td>{{lot.price}}</td>
+                <td>{{ lot.available_count }}</td>
+                <td>
+                    {% if lot.available_count > 0 %}
+                    <form action="{{url_for('book_spot', lot_id=lot.id, user_id=user.id)}}" method="GET">
+                        <button type="submit" class="btn"> Book </button>
+                    </form>
+                    {% else %}
+                    Fully Occupied
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>
