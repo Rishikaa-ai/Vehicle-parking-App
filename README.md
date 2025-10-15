@@ -4,12 +4,12 @@ The Vehicle Parking App is a city-based web application designed to simplify the
 ## VIsual Demonstration
 
 <p align="center">
-<img width="430" height="768" alt="User Dashboard" src="https://github.com/user-attachments/assets/fffd5e00-e594-47df-aa86-7ca827966f9c" />
-<img width="430" height="768" alt="Booking" src="https://github.com/user-attachments/assets/7a5573aa-0387-46e0-8e60-ce278b08091e" />
+<img width="430" height="768" alt="User Dashboard" src="https://github.com/user-attachments/assets/312c7893-6e23-413a-b6eb-395b2aaa6b3b" />
+<img width="430" height="768" alt="Booking" src="https://github.com/user-attachments/assets/829f03d8-713f-4d04-bfc1-f75b518318c2" />
 </p>
 <p align="center">
-<img width="430" height="768" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/6da63f65-04dd-4334-9a30-dc7596a53035" />
-<img width="430" height="768" alt="Admin Summary" src="https://github.com/user-attachments/assets/1525181c-5a71-4fcd-9453-5938b36640d7" />
+<img width="430" height="768" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/23471f5e-76fe-4372-a2d2-1b908593ceae" />
+<img width="430" height="768" alt="Admin Summary" src="https://github.com/user-attachments/assets/3a0bd936-5752-462f-ab8c-0041b5a11c9a" />
 </p>
 
 ## User Features
