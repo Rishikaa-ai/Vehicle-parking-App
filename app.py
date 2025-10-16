@@ -14,7 +14,7 @@ india = pytz.timezone('Asia/Kolkata')
 
 app=Flask(__name__)
 app.config['SECRET_KEY'] = 'myparking-secretkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/database.db'
 db.init_app(app)
 
 
