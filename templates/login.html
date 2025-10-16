@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+<body style="display:flex">
+    <div>
+        <h1 class="heading"><B>LOGIN </B></h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="/login" method="post">
+            <div class="forms">
+                <img src="{{ url_for('static', filename='symbol.png') }}" alt="Symbol" class="symbol">
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Email" name="email" id="email" required><br>
+                
+                <label for="pwd"><b>Password</b></label>
+                <input type="password" placeholder=" Password" name="pwd" required><br>
+            
+                <button class='fbtn' type="submit" ><b>Login</b></button>
+
+                <div>
+                <p>Don't have an account ?</p>
+                <button class='fbtn' type="button" class="reg-btn" onclick="window.location.href='/register'">
+                <b>Create Account</b>!
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

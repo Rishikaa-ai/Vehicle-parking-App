@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<header>
+    <div class="top-bar">
+        <strong>Welcome, {{ user.full_name.split(' ')[0] }}</strong>
+        <div>
+            <a href="{{ url_for('user_dashboard', user_id=user.id) }}">Home</a>
+            <a href="{{ url_for('summary', user_id=user.id) }}" >Summary</a>
+            <a href="{{ url_for('login') }}">Logout</a>
+            <a href="{{ url_for('edit_profile', user_id=user.id) }}">Edit Profile</a>
+        </div>
+    </div>
+</header>
+
+<body>
+     <h2 class="heading">Your Parking Summary</h2>
+    <div class="section-title">
+        <img src="{{ url_for('static', filename='summary_chart.png') }}" alt="Lot Usage Chart" width="600">
+
+    
+</body>
+</html>

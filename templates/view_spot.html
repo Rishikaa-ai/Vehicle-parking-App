@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>View Spot</title>
+</head>
+<header>
+    <div class="top-bar"><strong>View Spot</strong></div>
+</header>
+<body>
+    <div class="section-title">
+        <h2 class="heading">View/Delete parking spot</h2>
+       {% if spot.status == 'A' %}
+        <form class='forms2' method="POST"
+              action="{{ url_for('delete_spot', spot_id=spot.id) }}"
+              onsubmit="return confirm('Are you sure you want to delete this spot?')">
+        {% else %}
+        <form class='forms2' method="GET">
+        {% endif %}
+            <label>Spot ID:</label>
+            <input type="number" name="id" value="{{ spot.id }}" readonly>
+
+            <label>Spot label:</label>
+            <input type="text" name="status" value="{{ spot.spot_name }}" readonly
+
+            <label>Status:</label>
+            <input type="text" name="status" value="{{ spot.status }}" readonly>
+
+            {% if spot.status == 'A' %}
+                <button type="submit" class="f2btn">Delete</button>
+            {% else %}
+                <a href="{{url_for('occupied_spot', spot_id=spot.id)}}" class="f2btn">Details</a>
+            {% endif %}
+            <a href="{{ url_for('admin_dashboard', user_id=session.get('user_id')) }}" class="f2btn">Close</a>
+        </form>
+    </div>
+</body>
+</html>
