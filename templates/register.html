@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Registration Form</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+<body style="display:flex">
+  <div>
+    <h1 class="heading"><b>SIGN UP</b></h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash">{{ messages[0] }}</div>
+        {% endif %}
+    {% endwith %}
+    <form action="/register" method="post">
+      <div class="forms">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Full name" name="fullname" required />
+          <br>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email" name="email" required />
+          <br>
+        <label for="pwd">Password</label>
+        <input type="password" id="password" placeholder="Password" name="pwd" required minlength="4" />
+          <br>
+        <label for="address">Address</label>
+        <textarea name="address" id="address-input" placeholder="Address" required></textarea>
+        
+        <label for="pin_code">Pin Code</label>
+        <input type="number" id="pin_code" placeholder="Pin code" name="pin_code" required />
+          <br>
+        <button class='fbtn' type="submit"><b>Register</b></button>
+        <div>
+          <br>
+          <button class='fbtn' type="button" onclick="window.location.href='/login'">
+          <b>Login Here!</b>
+          </button>
+        </div>
+      </div>
+    </form>
+    
+  </div>
+</body>
+</html>

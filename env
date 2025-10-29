@@ -1,0 +1,2 @@
+SECRET_KEY=myparking-secretkey
+SQLALCHEMY_DATABASE_URI=sqlite:///database.db

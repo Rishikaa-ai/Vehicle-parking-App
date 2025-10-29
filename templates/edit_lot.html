@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Lot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<header>
+    <div class="top-bar"><strong>Edit Lot</strong></div>
+</header>
+<body>
+<div class="section-title">
+    <h2 class="heading">Edit Lot Details</h2>
+    <form class="forms2" method="POST">
+
+        <label>Prime Location:</label>
+        <input type="text" name="location" value="{{ lot.prime_location_name }}" required>
+
+        <label>Address:</label>
+        <textarea id="address-input" name="address" rows="2" required>{{ lot.address }}</textarea>
+
+        <label>Pin code:</label>
+        <input type="number" name="code" value="{{ lot.pin_code }}" required>
+
+        <label>City:</label>
+        <input type="text" name="city" value="{{ lot.city }}" readonly>
+
+        <label>Price per unit hour:</label>
+        <input type="text" name="price" value="{{ lot.price }}" required>
+
+        <label>Number of Spots:</label>
+        <input type="number" name="spot_no" value="{{ lot.max_number_of_spots }}" required>
+
+        <button type="submit" class="f2btn">Update</button>
+        <a href="{{ url_for('admin_dashboard', user_id=user.id) }}" class="f2btn">Cancel</a>
+
+    </form>
+</div>
+</body>
+</html>

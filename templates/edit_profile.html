@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<header>
+  <div class="top-bar"><strong>Edit Profile</strong></div>
+</header>
+
+<body>
+  <div class="section-title">
+        <h2 class="heading">Edit Your Profile</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="flash">
+        <ul>
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    {% endwith %}
+
+    
+
+    <form class='forms2' method="POST">
+        <label>Full Name:</label>
+        <input type="text" name="fullname" value="{{ user.full_name }}" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ user.email }}" required>
+
+        <label>New Password:</label>
+        <input type="password" name="pwd" placeholder="Leave blank to keep current">
+
+        <label>Confirm Password:</label>
+        <input type="password" name="confirm_pwd" placeholder="Re-enter new password">
+
+        <label for="address">Address</label>
+        <textarea name="address" id="address-input" placeholder="address" required>{{ user.address }}</textarea>
+        
+        <label for="pin_code">Pin Code</label>
+        <input type="text" id="pin_code" placeholder="Pin code" name="pin_code" value="{{ user.pin_code }}" required />
+
+        <button type="submit" class="f2btn">Save</button>   
+        {% if user.role==1 %}
+          <a href="{{ url_for('admin_dashboard', user_id=1) }}" class="f2btn">Cancel</a>
+
+        {% else %}
+          
+          <a href="{{ url_for('user_dashboard', user_id=user.id) }}" class="f2btn">Cancel</a> 
+        {% endif %}
+
+       
+        </form>
+  </div>
+</body>
+</html>
+

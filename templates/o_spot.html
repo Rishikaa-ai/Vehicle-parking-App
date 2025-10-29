@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Occupied Spot</title>
+</head>
+<header>
+    <div class="top-bar"><strong>Occupied Spot</strong></div>
+</header>
+<body>
+    <div class="section-title">
+        <h2 class="heading">Occupied Spot Details</h2>
+        <form class="forms2">
+
+        <label>Spot ID:</label>
+        <input type="number" name="id"  value="{{ spot.id }}"readonly>
+
+        <label >Customer ID:</label>
+        <input type="text" name="cid"  value="{{ user.id }}"readonly>
+
+        <label>Vehicle Number:</label>
+        <input type="text" name="vnum" value="{{ res.vehicle_number }}" readonly>
+
+        <label>Date:</label>
+        <input type="date" name="date" value="{{ res.parking_time.strftime('%Y-%m-%d') }}" readonly>
+
+        <label>Time:</label>
+        <input type="time" name="date" value="{{ res.parking_time.strftime('%H:%M') }}" readonly>
+
+        <label>Estimated cost:</label>
+        <input type="number" name="price" value="{{total_cost}}" readonly>
+
+        <a href="{{ url_for('admin_dashboard', user_id=user.id) }}" class="f2btn">Close</a>
+    </form>
+  </div>
+</body>
+</html>
