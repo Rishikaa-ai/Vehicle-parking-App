@@ -1,6 +1,16 @@
 # Vehicle Parking App
 The Vehicle Parking App is a city-based web application designed to simplify the process of locating, booking, and managing parking spots across multiple cities and helps admins manage lots and spot status efficiently. 
 
+## VIsual Demonstration
+<p align="center">
+<img width="400" height="768" alt="User Dashboard" src="https://github.com/user-attachments/assets/ff6f5be1-e094-46fb-be69-3d9e06fcc854" />
+<img width="400" height="768" alt="Booking" src="https://github.com/user-attachments/assets/3295936f-2d50-4e6b-99d1-ebd646b1729d" />
+</p>
+<p align="center">
+<img width="400" height="768" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/99684d8c-a099-470d-9b2b-400db60d436a" />
+<img width="400" height="768" alt="Admin Summary" src="https://github.com/user-attachments/assets/fd708d92-dd95-4e6f-a5f7-bad5958a4b6b" />
+</p>
+
 ## User Features
 - **City-Based Search**: Search and view available lots by selecting a city
 - **Book & Release Spots**: Book the first available spot and release it after use
@@ -18,24 +28,6 @@ The Vehicle Parking App is a city-based web application designed to simplify the
 - **Frontend**: HTML, CSS, Jinja2 Templates
 - **Database**: SQLAlchemy (SQLite)
 - **Charts**: Matplotlib
-
-## How to run app
-### 1. Create Virtual Environment
-```
-python3 -m venv env
-```
-### 2. Activate Virtual Environment
-```
-source env/bin/activate
-```
-### 3. Install Dependencies
-```
-pip install -r requirements.txt
-```
-### 4. Run
-```
-python app.py
-```
 
 ## Project Structure
 ```
